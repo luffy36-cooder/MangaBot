@@ -1,26 +1,16 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 env_vars = {
-  # Get From my.telegram.org
-  "API_HASH": "",
-  # Get From my.telegram.org
-  "API_ID": "",
-  #Get For @BotFather
-  "BOT_TOKEN": "",
-  # Get For tembo.io
-  "DATABASE_URL_PRIMARY": "",
-  # Logs Channel Username Without @
-  "CACHE_CHANNEL": "",
-  # Force Subs Channel username without @
-  "CHANNEL": "",
-  # {chap_num}: Chapter Number
-  # {chap_name} : Manga Name
-  # Ex : Chapter {chap_num} {chap_name} @Manhwa_Arena
-  "FNAME": "",
-  # Put Thumb Link 
-  "THUMB": ""
+    "API_ID": os.getenv("API_ID"),
+    "API_HASH": os.getenv("API_HASH"),
+    "BOT_TOKEN": os.getenv("BOT_TOKEN"),
+    "DATABASE_URL_PRIMARY": os.getenv("DATABASE_URL_PRIMARY", ""),
+    "CACHE_CHANNEL": os.getenv("CACHE_CHANNEL", ""),
+    "CHANNEL": os.getenv("CHANNEL", ""),
+    "FNAME": os.getenv("FNAME", ""),
+    "THUMB": os.getenv("THUMB", "")
 }
-
 dbname = env_vars.get('DATABASE_URL_PRIMARY') or env_vars.get('DATABASE_URL') or 'sqlite:///test.db'
-
-if dbname.startswith('postgres://'):
-    dbname = dbname.replace('postgres://', 'postgresql://', 1)
-    
