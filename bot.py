@@ -172,14 +172,25 @@ async def on_private_message(client: Client, message: Message):
 @bot.on_message(filters=filters.command(['start']))
 async def on_start(client: Client, message: Message):
     logger.info(f"User {message.from_user.id} started the bot")
-    await message.reply("Welcome to the best manga pdf bot in telegram!!\n"
-                        "\n"
-                        "How to use? Just type the name of some manga you want to keep up to date.\n"
-                        "\n"
-                        "For example:\n"
-                        "`One Piece`\n"
-                        "\n"
-                        "Check /help for more information.")
+    await message.reply(
+        """
+🌌 <b>Welcome to Manhwa Galactic Bot!</b> 🚀\n\n"
+        "Your personal gateway to the universe of manga, manhwa, and manhua — right here on Telegram!\n\n"
+        "<b>✨ What can I do?</b>\n"
+        "• Instantly search and download your favorite series\n"
+        "• Choose your preferred language and source\n"
+        "• Get beautiful PDFs, CBZs, or Telegraph links\n"
+        "• Customize file names, banners, quality, and more\n\n"
+        "<b>How to use:</b>\n"
+        "1️⃣ Just type the name of any manga/manhwa/manhua\n"
+        "2️⃣ Follow the interactive buttons\n"
+        "3️⃣ Enjoy your download in seconds!\n\n"
+        "<b>Example:</b>\n"
+        "<code>Solo Leveling</code>\n\n"
+        "Need help? Use /help or join our <a href='https://t.me/DemonsBots_Support'>support channel</a>.\n\n"
+        "<i>Happy reading, galaxy conqueror! 🌠</i>"
+        , parse_mode="html", disable_web_page_preview=True
+    )
     logger.info(f"User {message.from_user.id} finished the start command")
     
 
@@ -197,7 +208,7 @@ async def on_queue(client: Client, message: Message):
 async def on_refresh(client: Client, message: Message):
     text = message.reply_to_message.text or message.reply_to_message.caption
     if text:
-        regex = re.compile(r'\[Read on telegraph]\((.*)\)')
+        regex = re.compile(r'\[Read on telegraph\]\((.*)\)')
         match = regex.search(text.markdown)
     else:
         match = None

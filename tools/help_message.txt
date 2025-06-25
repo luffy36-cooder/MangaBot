@@ -1,23 +1,23 @@
-@Client.on_message(filters.command("help"))
-async def help_message(client, message):
-    await message.reply_text(
-        "**🌌 Welcome to Manhwa Galactic Bot! 🚀**\n\n"
-        "Just send the name of the manga/manhwa/manhua you want to download. For example:\n"
-        "`Solo Leveling`\n\n"
-        "**📚 Steps to Download:**\n"
-        "➤ Choose your preferred language\n"
-        "➤ Pick your source website\n"
-        "➤ Select the chapter(s) to download\n"
-        "➤ Format will be sent as PDF/CBZ/Telegraph link (you choose!)\n\n"
-        "**🧩 Commands:**\n"
-        "`/start` - Bot introduction and welcome\n"
-        "`/subs` - Show your manga subscriptions\n"
-        "`/refresh` - Refresh the images of a specific chapter\n"
-        "`/options` - Toggle between PDF, CBZ or Telegraph\n"
-        "`/help` - Show this message\n\n"
-        "**🔗 Updates & Support**\n"
-        "• Updates Channel: [@DemonsBots_Support](https://t.me/DemonsBots_Support)\n"
-        "• Bot: [@Manhwa_Galactic_bot](https://t.me/Manhwa_Galactic_bot)\n\n"
-        "_Happy reading, galaxy conqueror 🌠_",
-        disable_web_page_preview=True
-    )
+**🌌 Welcome to Manhwa Galactic Bot! 🚀**
+
+Just send the name of the manga/manhwa/manhua you want to download. For example:
+`Solo Leveling`
+
+**📚 Steps to Download:**
+➤ Choose your preferred language
+➤ Pick your source website
+➤ Select the chapter(s) to download
+➤ Format will be sent as PDF/CBZ/Telegraph link (you choose!)
+
+**🧩 Commands:**
+`/start` - Bot introduction and welcome
+`/subs` - Show your manga subscriptions
+`/refresh` - Refresh the images of a specific chapter
+`/options` - Toggle between PDF, CBZ or Telegraph
+`/help` - Show this message
+
+**🔗 Updates & Support**
+• Updates Channel: [@DemonsBots_Support](https://t.me/DemonsBots_Support)
+• Bot: [@Manhwa_Galactic_bot](https://t.me/Manhwa_Galactic_bot)
+
+_Happy reading, galaxy conqueror 🌠_

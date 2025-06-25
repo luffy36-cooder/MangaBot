@@ -23,7 +23,7 @@ class ChapterFile(SQLModel, table=True):
 
 class MangaOutput(SQLModel, table=True):
     user_id: str = Field(primary_key=True, regex=r'\d+')
-    output: int = Field
+    output: int = Field()
 
 
 class Subscription(SQLModel, table=True):
@@ -69,18 +69,17 @@ class DB(metaclass=LanguageSingleton):
     async def get_all(self, table: Type[T]) -> List[T]:
         async with AsyncSession(self.engine) as session:  # type: AsyncSession
             statement = select(table)
-            return await session.exec(statement=statement)
+            return (await session.exec(statement=statement)).all()
 
     async def erase(self, other: SQLModel):
         async with AsyncSession(self.engine) as session:  # type: AsyncSession
             async with session.begin():
-                await session.delete(other)
+                session.delete(other)
 
     async def get_chapter_file_by_id(self, id: str):
         async with AsyncSession(self.engine) as session:  # type: AsyncSession
             statement = select(ChapterFile).where((ChapterFile.file_unique_id == id) |
-                                                  (ChapterFile.cbz_unique_id == id) |
-                                                  (ChapterFile.telegraph_url == id))
+                                                  (ChapterFile.cbz_unique_id == id))
             return (await session.exec(statement=statement)).first()
 
     async def get_subs(self, user_id: str, filters=None) -> List[MangaName]:

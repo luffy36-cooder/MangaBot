@@ -6,11 +6,11 @@ from bot import *  # this imports all handlers including your settings
 async def async_main():
     db = DB()
     await db.connect()
+    await bot.start()
+    aio.create_task(manga_updater())
+    for i in range(10):
+        aio.create_task(chapter_creation(i + 1))
+    await aio.Event().wait()  # Keeps the bot running
 
 if __name__ == '__main__':
-    loop = aio.get_event_loop_policy().get_event_loop()
-    loop.run_until_complete(async_main())
-    loop.create_task(manga_updater())
-    for i in range(10):
-        loop.create_task(chapter_creation(i + 1))
-    bot.run()
+    aio.run(async_main())

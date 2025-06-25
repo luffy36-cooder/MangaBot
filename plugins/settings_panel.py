@@ -1,9 +1,10 @@
 # plugins/settings_panel.py
 
-from pyrogram import Client, filters
+from bot import bot  # Import the bot instance
+from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-@Client.on_message(filters.command("settings"))
+@bot.on_message(filters.command("settings"))
 async def settings_handler(client, message):
     user_id = message.from_user.id
 
