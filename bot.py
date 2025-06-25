@@ -167,6 +167,11 @@ async def on_private_message(client: Client, message: Message):
     except Exception as e:
         logger.exception(e)
 
+START_IMG = "https://files.catbox.moe/fvgszq.jpg"
+
+START_BUTTONS = [
+    [InlineKeyboardButton("SUPPORT" , url ="https://t.me/DemonsBots_Support")]]
+
 @bot.on_message(filters=filters.command(['start']))
 async def on_start(client: Client, message: Message):
     welcome_msg = """🌌 <b>Welcome to Manhwa Galactic Bot!</b> 🚀\n\n
@@ -183,8 +188,12 @@ Your personal gateway to manga, manhwa, and manhua — right on Telegram!\n\n
 <b>Example:</b> <code>Solo Leveling</code>\n\n
 Need help? Try /help or join our <a href='https://t.me/DemonsBots_Support'>support channel</a>.\n\n
 <i>Happy reading! 🌠</i>"""
-    
-    await message.reply(welcome_msg, parse_mode="html", disable_web_page_preview=True)
+
+  
+   
+    await client.send_photo(chat_id = message.chat.id , photo = START_IMG , Caption = welcome_msg, parse_mode = 'html', reply_marup=InlineKeyboardMarkup(START_BUTTONS))
+
+   #await message.reply(welcome_msg, parse_mode="html", disable_web_page_preview=True)
 
 # [Include all other @bot.on_message handlers here...]
 
