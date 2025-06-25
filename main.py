@@ -1,11 +1,12 @@
+import plugins.settings_panel  # ✅ this registers the @Client.on_message for /settings
 import asyncio as aio
-from bot import *
-
+from bot import *  # this imports all handlers including your settings
+# ❌ REMOVE: from tools.settings_panel import settings_handler
 
 async def async_main():
     db = DB()
     await db.connect()
-    
+
 if __name__ == '__main__':
     loop = aio.get_event_loop_policy().get_event_loop()
     loop.run_until_complete(async_main())

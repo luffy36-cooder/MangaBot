@@ -1,15 +1,23 @@
-To download a manga just type the name of the manga you want to keep up to date.
-
-For example:
-`Fire Force`
-
-Then you will have to choose the language of the manga. Depending on this language, you will be able to choose the website where you could download the manga. Here you will have the option to subscribe, or to choose a chapter to download. The chapters are sorted according to the website.
-
-**Commands**:
-/start - Show some basic info about how to use the bot.
-/subs - Show all the subscriptions you have. After you search for a certain manga in any of the websites that the bot offers, you will have the option to subscribe to that manga in that specific website. When you are subscribed to a manga, the bot will send you the new chapters of that manga as soon as they are published in the website. With this command you can also cancel any of your subscriptions.
-/refresh - Reply to a manga chapter to refresh bot cache. If you want to refresh the images of a specific manga chapter, then this command will delete the cache with that information. This is useful if the website has changed the chapter images. You can request again the manga chapter to see the new images.
-/options - Disable/enable pdf, cbz and/or telegraph output format. This will determine what the bot will send you. 
-/help - Show this message.
-
-Updates Channel : @Wizard_bots
+@Client.on_message(filters.command("help"))
+async def help_message(client, message):
+    await message.reply_text(
+        "**🌌 Welcome to Manhwa Galactic Bot! 🚀**\n\n"
+        "Just send the name of the manga/manhwa/manhua you want to download. For example:\n"
+        "`Solo Leveling`\n\n"
+        "**📚 Steps to Download:**\n"
+        "➤ Choose your preferred language\n"
+        "➤ Pick your source website\n"
+        "➤ Select the chapter(s) to download\n"
+        "➤ Format will be sent as PDF/CBZ/Telegraph link (you choose!)\n\n"
+        "**🧩 Commands:**\n"
+        "`/start` - Bot introduction and welcome\n"
+        "`/subs` - Show your manga subscriptions\n"
+        "`/refresh` - Refresh the images of a specific chapter\n"
+        "`/options` - Toggle between PDF, CBZ or Telegraph\n"
+        "`/help` - Show this message\n\n"
+        "**🔗 Updates & Support**\n"
+        "• Updates Channel: [@DemonsBots_Support](https://t.me/DemonsBots_Support)\n"
+        "• Bot: [@Manhwa_Galactic_bot](https://t.me/Manhwa_Galactic_bot)\n\n"
+        "_Happy reading, galaxy conqueror 🌠_",
+        disable_web_page_preview=True
+    )
